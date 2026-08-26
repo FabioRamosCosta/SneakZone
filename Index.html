@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1> Sneak<span>Zone</span></h1>
+
+        <nav>
+            <ul>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#cadastro">Cadastro</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside class="top-bar">
+            <p>⚡ Frete Grátis nas compras acima de R$ 299,00</p>
+        </aside>
+        <section id="destaque">
+            <h2> A loja de tênis dos corredores </h2>
+            <p> Leveza, conforto e estilo para bater o seu recorde. </p>
+        </section>
+
+        <section id="produtos">
+            <h2> Nossos Tênis </h2>
+            <div>
+                <article>
+                    <img src="img/Tenis_abobora.jpeg" alt="Tênis de corrida laranja modelo Aerorun">
+                    <h3> AeroRun Laranja </h3>
+                    <p> Leveza para bater seu recorde.</p>
+                    <p> R$ 349,90 </p>
+                </article>
+                <article>
+                    <img src="img/Tenis_azul.jpeg" alt="Tênis casual azul modelo UrbanStep">
+                    <h3> UrbanStep Azul </h3>
+                    <p> O casual do dia a dia.</p>
+                    <p> R$ 279,90 </p>
+                </article>
+                <article>
+                    <img src="img/Tenis_verde.jpeg" alt="Tênis de basquete verde modelo CourtPro">
+                    <h3> TrailMax Verde </h3>
+                    <p> Aderencia para trilhas.</p>
+                    <p> R$ 429,90 </p>
+                </article>
+            </div>
+
+        </section>
+
+        <section id="precos">
+            <h2>Fretes e Prazos</h2>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Região</th>
+                            <th scope="col">Prazo de entrega</th>
+                            <th scope="col">Frete Padrão</th>
+                            <th scope="col">Frete grátis a patir de</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sudeste</td>
+                            <td> 2 a 4 dias úteis</td>
+                            <td>R$ 19,90</td>
+                            <td>R$ 299,00</td>
+                        </tr>
+                        <tr>
+                            <td>Sul</td>
+                            <td>3 a 6 dias úteis</td>
+                            <td>R$ 24,90</td>
+                            <td> R$ 299,00</td>
+                        </tr>
+                        <tr>
+                            <td>Nordeste</td>
+                            <td>5 a 9 dias úteis</td>
+                            <td>R$ 29,90</td>
+                            <td>R$ 349,00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Retirar na loja física (Centro/RJ):</td>
+                            <td>Grátis</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <h2> Sobre a SneakZone</h2>
+            <p>Nascemos em 2026 com a missão...</p>
+
+            <aside>
+                <h3>Você sabia?</h3>
+                <p>O primeiro tênis esportivo surgiu em 1917.</p>
+            </aside>
+        </section>
+
+        <section id="faq">
+            <h2> Dúvidas Frequentes</h2>
+            <details>
+                <summary>Qual o prazo de entreg?</summary>
+                <p> 3 a 7 dias úteis.</p>
+            </details>
+            <details>
+                <summary>Posso trocar?</summary>
+                <p> Sim, em até 30 dias</p>
+            </details>
+        </section>
+
+        <section id="cadastro">
+            <h2>Cadastro do Cliente</h2>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div id="mensagemSucesso" role="alert"></div>
+                            <form id="formCadastro" novalidate>
+                                <div>
+                                    <div>
+                                        <label for="nome">Nome completo</label>
+                                        <input type="text" id="nome" name="nome" placeholder="Ex.: Ana Paula Souza"
+                                            required>
+                                        <div>Por favor, informe seu nome completo.</div>
+                                    </div>
+                                    <div>
+                                        <label for="email">E-mail</label>
+                                        <input type="email" id="email" name="email" placeholder="voce@email.com"
+                                            required>
+                                        <div>Por favor, informe um e-mail válido.</div>
+                                    </div>
+                                    <div>
+                                        <label for="telefone">Telefone (com DDD)</label>
+                                        <input type="tel" id="telefone" name="telefone" placeholder="(21) 90000-0000"
+                                            pattern="\(\d{2}\)\s?\d{4,5}-\d{4}" title="Use o formato (21) 90000-0000"
+                                            required>
+                                        <div>Use o formato (21) 90000-0000.</div>
+                                    </div>
+                                    <div>
+                                        <label for="idade">Idade</label>
+                                        <input type="number" id="idade" name="idade" min="0" max="120"
+                                            placeholder="Ex.: 25" required>
+                                        <div>Por favor, informe uma idade válida.</div>
+                                    </div>
+                                    <div>
+                                        <label for="numeracao">Numeração</label>
+                                        <select id="numeracao" name="numeracao" required>
+                                            <option value="" selected disabled>Escolha...</option>
+                                            <option>36</option>
+                                            <option>37</option>
+                                            <option>38</option>
+                                            <option>39</option>
+                                            <option>40</option>
+                                            <option>41</option>
+                                            <option>42</option>
+                                            <option>43</option>
+                                            <option>44</option>
+                                        </select>
+                                        <div>Selecione uma numeração.</div>
+                                    </div>
+                                    <div>
+                                        <label for="cor">Cor preferida</label>
+                                        <input type="color" id="cor" name="cor" value="#ff6b35">
+                                    </div>
+                                    <div>
+                                        <span>Estilo favorito</span>
+                                        <div>
+                                            <input type="radio" name="estilo" id="estiloEsportivo" value="Esportivo"
+                                                checked>
+                                            <label for="estiloEsportivo">Esportivo</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="estilo" id="estiloCasual" value="Casual">
+                                            <label for="estiloCasual">Casual</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="estilo" id="estiloBasquete" value="Basquete">
+                                            <label for="estiloBasquete">Basquete</label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="mensagem">Alguma observação?</label>
+                                        <textarea id="mensagem" name="mensagem" rows="3"
+                                            placeholder="Conte o que você procura..."></textarea>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <input type="checkbox" id="termos" required>
+                                            <label for="termos">Li e aceito os termos e a política de privacidade
+                                                (LGPD).</label>
+                                            <div>Você precisa aceitar os termos para se cadastrar.</div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button type="submit"><i></i> Cadastrar</button>
+                                        <button type="reset">Limpar</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contato">
+        <p>&copy; 2026 SneakZone.</p>
+        <address>contato@sneakzone.com.br - WhatsApp (21) 90000-0000</address>
+    </footer>
+
+</body>

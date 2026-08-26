@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            background-color: rgb(233, 244, 244);
+            line-height: 1.6;
+            margin: 0;
+        }
+        img{max-width: 100; display: block;}
+        h1{ color:brown ; font-size: 40 px;}
+        h1 span {color:black;}
+        h2{
+            color:black; 
+            font-size: 26px; 
+            border-bottom: 3px solid crimson; 
+            padding-bottom: 6px;
+        } 
+        h3{color:black;}
+        /*cabeçalho/menu */
+        header {background: black;padding: 14px 20px;}
+        header a { color: white; text-decoration: none; font-weight: bold;}
+        nav ul { list-style: none; margin: 10px 0 0 ; padding: 0;}
+        nav li {display: inline-block; margin-right: 16px;}
+        nav li a {color: #e3e8ef; font-weight: normal;}
+
+        main section {
+            max-width: 1000px;
+            margin: 30px;
+            padding: 0 20px;
+        }
+      
+    
+        table {
+            width: 100%; 
+            border-collapse: collapse; 
+            background-color: azure;
+        }
+        th, td{ border: 1px solid #e3e8ef; padding: 10px; text-align: left; }
+        th {background-color: black; color: aliceblue;}
+
+        #cadastro form{
+            background-color: : #e3e8ef;
+            border: 1x solid #e3e8ef;
+            border-radius: 12px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- CABECALHO:LOGO + MENU -->>
+    <header>
+        <h1>Sneak<span>Zone</h1>
+        <nav>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#cadastro">Cadastro</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </nav>
+    </header>
+    <main>
+
+        <section id="Destaque">
+            <h2>Loja de Tênis dos concorrentes</h2>
+            <p>Leveza, conforto e estilo para bater seu record </p>
+        </section>
+        
+        <section id="produtos">
+            
+            <h2>Nossos Tênis</h2>
+            <div>
+            <article>
+               <img src="img\Tenis_abobora.jpeg" width="200" alt= "Tenis de corrida azul modelo Nke340">
+                <h3>AeroRun Laranja</h3>
+                <p>Leveza para baser seu recorde</p>
+                <p>R$ 349,90</p>
+            </article>
+
+            <article>
+                <img src="img\Tenis_azul.jpeg" width="200" alt= "Tenis casual azul modelo Nke540"> 
+                <h3>UrbanStep</h3>
+                <article>
+                
+                <p>Leveza para baser seu recorde</p>
+                <p>R$ 279,90</p>
+            </article>
+            <article>
+                <img src="img\Tenis_verde.jpeg" width="200" alt= "Tenis street  verde modelo Nke540"> 
+                <h3>TrailMAx Verde</h3>
+                <p>Aderencia para Trilhas</p>
+                <p>R$ 429,90</p>
+            </article>
+        </section>
+        <section id="precos">
+            <h2> Fretes e Prazos</h2>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col"> Regiao </th>
+                            <th scope="col"> Prazo de entrega </th>
+                            <th scope="col"> Frete Padrao </th>
+                            <th scope="col"> Frete gratis a  partir de  </th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+                        <tr><td> Sudeste</td> <td> 2 a 4 dias uteis</td><td>R$ 19,90</td><td>299,00</td><tr></tr>
+                        <tr><td> Sul</td> <td> 3 a 6 dias uteis</td><td>R$ 24,90</td><td>299,00</td></tr>
+                        <tr><td> Nordeste</td> <td> 5 a 9 dias uteis</td><td>R$ 29,90</td><td>340,00</td></tr>
+                        <tr><td colspan ="3" > Retirar na loja Fisica (Centro RJ)</td> <td> Gratis </td></tr>                                                
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <h2> Sobre a SneakZone</h2>
+            <p>Nascemos em 2026 sobre a missao de ...</p>
+
+            <aside></aside>
+            <h3>VocÊ sabia...</h3>
+            <p>O primeiro tenis esportivo surgiu em 1917...</p>
+
+        </section>
+
+        <section id="Faq">
+            <h2>Dúvidas Frequentes</h2>
+            <details>
+                <summary>Qual prazo de entrega?</summary>
+                <p>De 3 a 7 dias úteis..</p>
+            </details>
+            <details>
+                <summary>Posso trocar ?</summary>
+                <p>Sim , até 30 dias ..</p>  
+            </details>
+        </section>
+        <section id="cadastro"> 
+            <h2> Cadastro do Cliente</h2>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div id="mensagemSucesso" role="alert"> </div>
+  <form id="formCadastro" novalidate>
+                <div>
+                  <div>
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex.: Ana Paula Souza" required>
+                    <div>Por favor, informe seu nome completo.</div>
+                  </div>
+                  <div>
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="voce@email.com" required>
+                    <div>Por favor, informe um e-mail válido.</div>
+                  </div>
+                  <div>
+                    <label for="telefone">Telefone (com DDD)</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(21) 90000-0000" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}" title="Use o formato (21) 90000-0000" required>
+                    <div>Use o formato (21) 90000-0000.</div>
+                  </div>
+                  <div>
+                    <label for="idade">Idade</label>
+                    <input type="number" id="idade" name="idade" min="0" max="120" placeholder="Ex.: 25" required>
+                    <div>Por favor, informe uma idade válida.</div>
+                  </div>
+                  <div>
+                    <label for="numeracao">Numeração</label>
+                    <select id="numeracao" name="numeracao" required>
+                      <option value="" selected disabled>Escolha...</option>
+                      <option>36</option><option>37</option><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option><option>44</option>
+                    </select>
+                    <div>Selecione uma numeração.</div>
+                  </div>
+                  <div>
+                    <label for="cor">Cor preferida</label>
+                    <input type="color" id="cor" name="cor" value="#ff6b35">
+                  </div>
+                  <div>
+                    <span>Estilo favorito</span>
+                    <div>
+                      <input type="radio" name="estilo" id="estiloEsportivo" value="Esportivo" checked>
+                      <label for="estiloEsportivo">Esportivo</label>
+                    </div>
+                    <div>
+                      <input type="radio" name="estilo" id="estiloCasual" value="Casual">
+                      <label for="estiloCasual">Casual</label>
+                    </div>
+                    <div>
+                      <input type="radio" name="estilo" id="estiloBasquete" value="Basquete">
+                      <label for="estiloBasquete">Basquete</label>
+                    </div>
+                  </div>
+                  <div>
+                    <label for="mensagem">Alguma observação?</label>
+                    <textarea id="mensagem" name="mensagem" rows="3" placeholder="Conte o que você procura..."></textarea>
+                  </div>
+                  <div>
+                    <div>
+                      <input type="checkbox" id="termos" required>
+                      <label for="termos">Li e aceito os termos e a política de privacidade (LGPD).</label>
+                      <div>Você precisa aceitar os termos para se cadastrar.</div>
+                    </div>
+                  </div>
+                  <div>
+                    <button type="submit"><i></i> Cadastrar</button>
+                    <button type="reset">Limpar</button>
+                  </div>
+                </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+    <footer id="contato">
+        <p>&copy; 2026 SneakZone.</p>
+        <address>Contato@sneakzone.com.pt-BR - whatsApp (21) 9000-0000</address>
+    </footer>
+</body>
+
+</html>
