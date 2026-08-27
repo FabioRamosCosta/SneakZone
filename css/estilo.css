@@ -1,4 +1,7 @@
- body {
+:root{
+    --laranja-marca: #e9521b;
+}
+body {
      font-family: Arial, Helvetica, sans-serif;
      color: black;
      background-color: #f5f7fa;
@@ -174,4 +177,20 @@ margin: 0%;
 aside.top-bar strong {
   background-color: rgba(0, 0, 0, 0.2);
 
+}
+.badge{
+   background-color: #8fe22a;
+   color: white;
+   padding: 4px 8px;
+   border-radius: 10px;
+   font-size: 12px;
+
+}
+.preco{
+      background-color: #90ca49;
+   color: white;
+   padding: 8px 15px;
+   display: inline-block;
+   border-radius: 10px;
+   font-weight: bold;
 }
