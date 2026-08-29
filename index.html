@@ -53,6 +53,7 @@
                     <h3> TrailMax Verde </h3>
                     <p> Aderencia para trilhas.</p>
                     <p> R$ 429,90 </p>
+                    <button type="button" onclick="comprar('TrailMax', 429,90)">Comprar</button>
                 </article>
             </div>
 
@@ -111,6 +112,47 @@
             </table>
 
         </section>
+        
+        
+        <section id="calcularFrete">
+            <h2> Calcular Frete</h2>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div id="mensagemSucesso" role="alert"></div>
+                            <form id="formCalculoFrete" novalidate>
+                                <div>
+                                    <div>
+                                        <label for="valorCompra">Valor da compra</label>
+                                        <input type="number" id="valorCompra" name="valorCompra" placeholder="Ex.: 1100"
+                                            required>
+                                        <div>Por favor, informe o valor da sua compra.</div>
+                                    </div>
+                                    <div>
+                                        <select id="regiao">
+
+                                            <option value="">Selecione</option>
+                                            <option value="sudeste">Sudeste</option>
+                                            <option value="sul">Sul</option>
+                                            <option value="nordeste">Nordeste</option>
+
+                                       </select> 
+                                    <div>
+                                        <button type="button" onclick="calcularFrete()"><i></i> Calacular frete</button>
+                                        <p id="resultadoFrete"></p>
+                                        <button type="reset">Limpar</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
         <section id="precos">
             <h2>Fretes e Prazos</h2>
             <div>
@@ -257,7 +299,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <button type="submit"><i></i> Cadastrar</button>
+                                        <button type="button" onclick="cadastrar()"><i></i> Cadastrar</button>
                                         <button type="reset">Limpar</button>
                                     </div>
                                 </div>
@@ -275,5 +317,5 @@
         <p>&copy; 2026 SneakZone.</p>
         <address>contato@sneakzone.com.br - WhatsApp (21) 90000-0000</address>
     </footer>
-
+<script src="js/script.js"></script>
 </body>
