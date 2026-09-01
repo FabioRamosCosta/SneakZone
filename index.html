@@ -112,8 +112,8 @@
             </table>
 
         </section>
-        
-        
+
+
         <section id="calcularFrete">
             <h2> Calcular Frete</h2>
             <div>
@@ -137,13 +137,14 @@
                                             <option value="sul">Sul</option>
                                             <option value="nordeste">Nordeste</option>
 
-                                       </select> 
-                                    <div>
-                                        <button type="button" onclick="calcularFrete()"><i></i> Calacular frete</button>
-                                        <p id="resultadoFrete"></p>
-                                        <button type="reset">Limpar</button>
+                                        </select>
+                                        <div>
+                                            <button type="button" onclick="calcularFrete()"><i></i> Calacular
+                                                frete</button>
+                                            <p id="resultadoFrete"></p>
+                                            <button type="reset">Limpar</button>
+                                        </div>
                                     </div>
-                                </div>
                             </form>
 
                         </div>
@@ -151,8 +152,8 @@
                 </div>
             </div>
         </section>
-        
-        
+
+
         <section id="precos">
             <h2>Fretes e Prazos</h2>
             <div>
@@ -270,39 +271,71 @@
                                         <input type="color" id="cor" name="cor" value="#ff6b35">
                                     </div>
                                     <div>
-                                        <span>Estilo favorito</span>
-                                        <div>
+
+
+                                        <fieldset class="grupo-formulario_favorito">
+                                            <legend>Estilo favorito</legend>
+
                                             <input type="radio" name="estilo" id="estiloEsportivo" value="Esportivo"
                                                 checked>
                                             <label for="estiloEsportivo">Esportivo</label>
-                                        </div>
-                                        <div>
+
+
                                             <input type="radio" name="estilo" id="estiloCasual" value="Casual">
                                             <label for="estiloCasual">Casual</label>
-                                        </div>
-                                        <div>
+
+
                                             <input type="radio" name="estilo" id="estiloBasquete" value="Basquete">
                                             <label for="estiloBasquete">Basquete</label>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <label for="mensagem">Alguma observação?</label>
-                                        <textarea id="mensagem" name="mensagem" rows="3"
-                                            placeholder="Conte o que você procura..."></textarea>
-                                    </div>
-                                    <div>
+
+                                        </fieldset>
+
+
                                         <div>
-                                            <input type="checkbox" id="termos" required>
-                                            <label for="termos">Li e aceito os termos e a política de privacidade
-                                                (LGPD).</label>
-                                            <div>Você precisa aceitar os termos para se cadastrar.</div>
+
+                                            <fieldset>
+                                                <legend>Tipo de Tenis favorito</legend>
+
+                                                <input type="checkbox" name="tipo" id="tipoCorrida" value="tipoCorrida"
+                                                    checked>
+                                                <label for="tipoEsportivo">Corrida</label>
+
+                                                <input type="checkbox" name="tipo" id="tipoCasual" value="tipoCasual">
+                                                <label for="tipoCasual">Casual</label>
+
+                                                <input type="checkbox" name="tipo" id="tipoBasquete" value="tipoBasquete">
+                                                <label for="tipoBasquete">Basquete</label>
+
+                                                
+                                                <input type="checkbox" name="tipo" id="tipoTrilha" value="tipoTrilha">
+                                                <label for="tipoBasquete">Basquete</label>
+
+
+                                            </fieldset>
+
+
+                                            <div>
+
+                                            </div>
+                                            <div>
+                                                <label for="mensagem">Alguma observação?</label>
+                                                <textarea id="mensagem" name="mensagem" rows="3"
+                                                    placeholder="Conte o que você procura..."></textarea>
+                                            </div>
+                                            <div>
+                                                <div>
+                                                    <input type="checkbox" id="termos" required>
+                                                    <label for="termos">Li e aceito os termos e a política de
+                                                        privacidade
+                                                        (LGPD).</label>
+                                                    <div>Você precisa aceitar os termos para se cadastrar.</div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button type="button" onclick="cadastrar()"><i></i> Cadastrar</button>
+                                                <button type="reset">Limpar</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <button type="button" onclick="cadastrar()"><i></i> Cadastrar</button>
-                                        <button type="reset">Limpar</button>
-                                    </div>
-                                </div>
                             </form>
 
                         </div>
@@ -317,5 +350,5 @@
         <p>&copy; 2026 SneakZone.</p>
         <address>contato@sneakzone.com.br - WhatsApp (21) 90000-0000</address>
     </footer>
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>

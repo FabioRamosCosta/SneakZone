@@ -194,3 +194,19 @@ aside.top-bar strong {
    border-radius: 10px;
    font-weight: bold;
 }
+
+fieldset
+{
+  width:600px;
+  height:450px;
+  color:#120602
+}
+
+.grupo-formulario_favorito {
+  border: 2px solid #b76014;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  margin-bottom: 20px;
+  
+}

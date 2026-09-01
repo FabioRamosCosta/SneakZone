@@ -18,6 +18,14 @@ function cadastrar(){
 
     let estilo = document.querySelector('input[name="estilo"]:checked').value;
 
+    let tipo = [] 
+     document.querySelectorAll('input[name="tipo"]:checked').
+     forEach(function (item) {
+        tipo.push(item.value)
+     });;
+
+     console.log(tipo)
+
     let cliente ={
         nome: nome,
         email: email,
@@ -26,7 +34,8 @@ function cadastrar(){
         numeracao: numeracao,
         cor: cor,
         mensagem: mensagem,
-        estilo: estilo,        
+        estilo: estilo,
+
     }
 
     console.log(nome)
