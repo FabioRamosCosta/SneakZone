@@ -75,11 +75,11 @@ body {
  }
 
 
- main section {
+ /* main section {
      max-width: 1000px;
      margin: 30px auto;
      padding: 0 20px;
- }
+ } */
 
  table {
      width: 100%;
@@ -210,3 +210,10 @@ fieldset
   margin-bottom: 20px;
   
 }
+
+
+/* https://getbootstrap.com/docs/5.3/forms/form-control/ 
+
+https://getbootstrap.com/docs/5.3/content/tables/
+
+https://icons.getbootstrap.com/ */

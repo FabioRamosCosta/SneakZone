@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SneakZone</title>
     <link rel="stylesheet" href="css/estilo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -26,15 +27,15 @@
         <aside class="top-bar">
             <p>⚡ Frete Grátis nas compras acima de R$ 299,00</p>
         </aside>
-        <section id="destaque">
+        <section id="destaque" class="container">
             <h2> A loja de tênis dos corredores </h2>
             <p> Leveza, conforto e estilo para bater o seu recorde. </p>
         </section>
 
-        <section id="produtos">
+        <section id="produtos" class="container">
             <h2> Nossos Tênis </h2>
-            <div>
-                <article>
+            <div class="row g-4">
+                <article class="col-12 col-md-4">
                     <span class="badge">Lancamento</span>
                     <img src="img/Tenis_abobora.jpeg" alt="Tênis de corrida laranja modelo Aerorun">
                     <h3> AeroRun Laranja </h3>
@@ -42,12 +43,13 @@
                     <p><span class="preco"> R$ 349,90 </span></p>
                     <span class="badge"><del>R$ 300</del></span>
                 </article>
-                <article>
+                <article class="col-12 col-md-4">
                     <img src="img/Tenis_azul.jpeg" alt="Tênis casual azul modelo UrbanStep">
                     <h3> UrbanStep Azul </h3>
                     <p> O casual do dia a dia.</p>
                     <p> R$ 279,90 </p>
-                </article>
+                    <button type="button" onclick="comprar('UrbanStep', 279,90)">Comprar</button>
+                </article class="col-12 col-md-4">
                 <article>
                     <img src="img/Tenis_verde.jpeg" alt="Tênis de basquete verde modelo CourtPro">
                     <h3> TrailMax Verde </h3>
@@ -58,8 +60,8 @@
             </div>
 
         </section>
-        <section id="tamanhos">
-            <table>
+        <section id="tamanhos" class="container">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">Numeração BR</th>
@@ -114,9 +116,9 @@
         </section>
 
 
-        <section id="calcularFrete">
+        <section id="calcularFrete" class="container">
             <h2> Calcular Frete</h2>
-            <div>
+            <div >
                 <div>
                     <div>
                         <div>
@@ -154,10 +156,10 @@
         </section>
 
 
-        <section id="precos">
+        <section id="precos" class="container">
             <h2>Fretes e Prazos</h2>
             <div>
-                <table>
+                <table class="table-secondary">
                     <thead>
                         <tr>
                             <th scope="col">Região</th>
@@ -194,7 +196,7 @@
             </div>
         </section>
 
-        <section id="sobre">
+        <section id="sobre" class="container">
             <h2> Sobre a SneakZone</h2>
             <p>Nascemos em 2026 com a missão...</p>
 
@@ -204,7 +206,7 @@
             </aside>
         </section>
 
-        <section id="faq">
+        <section id="faq" class="container">
             <h2> Dúvidas Frequentes</h2>
             <details>
                 <summary>Qual o prazo de entreg?</summary>
@@ -216,7 +218,7 @@
             </details>
         </section>
 
-        <section id="cadastro">
+        <section id="cadastro" class="container">
             <h2>Cadastro do Cliente</h2>
             <div>
                 <div>
@@ -224,33 +226,33 @@
                         <div>
                             <div id="mensagemSucesso" role="alert"></div>
                             <form id="formCadastro" novalidate>
-                                <div>
-                                    <div>
+                                <div class="row g-3">
+                                    <div class="campo col-12 col-md-6">
                                         <label for="nome">Nome completo</label>
                                         <input type="text" id="nome" name="nome" placeholder="Ex.: Ana Paula Souza"
                                             required>
                                         <div>Por favor, informe seu nome completo.</div>
                                     </div>
-                                    <div>
+                                    <div class="campo col-12 col-md-6" >
                                         <label for="email">E-mail</label>
                                         <input type="email" id="email" name="email" placeholder="voce@email.com"
                                             required>
                                         <div>Por favor, informe um e-mail válido.</div>
                                     </div>
-                                    <div>
+                                    <div class="campo col-12 col-md-6">
                                         <label for="telefone">Telefone (com DDD)</label>
                                         <input type="tel" id="telefone" name="telefone" placeholder="(21) 90000-0000"
                                             pattern="\(\d{2}\)\s?\d{4,5}-\d{4}" title="Use o formato (21) 90000-0000"
                                             required>
                                         <div>Use o formato (21) 90000-0000.</div>
                                     </div>
-                                    <div>
+                                    <div class="campo col-12 col-md-6">
                                         <label for="idade">Idade</label>
                                         <input type="number" id="idade" name="idade" min="0" max="120"
                                             placeholder="Ex.: 25" required>
                                         <div>Por favor, informe uma idade válida.</div>
                                     </div>
-                                    <div>
+                                    <div class="campo col-12 col-md-6">
                                         <label for="numeracao">Numeração</label>
                                         <select id="numeracao" name="numeracao" required>
                                             <option value="" selected disabled>Escolha...</option>
@@ -266,7 +268,7 @@
                                         </select>
                                         <div>Selecione uma numeração.</div>
                                     </div>
-                                    <div>
+                                    <div class="campo col-12 col-md-6">
                                         <label for="cor">Cor preferida</label>
                                         <input type="color" id="cor" name="cor" value="#ff6b35">
                                     </div>
