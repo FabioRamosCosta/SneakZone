@@ -74,6 +74,11 @@ body {
      font-weight: normal;
  }
 
+.banner-img{
+
+    height: 400px;
+    object-fit: cover;
+}
 
  /* main section {
      max-width: 1000px;

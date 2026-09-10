@@ -1,10 +1,10 @@
-function comprar(nomeProduto, preco){
-    console.log("Produto: ", nomeProduto)
-    console.log("Preço:", preco)
+function comprar(nomeProduto, preco, imagem){
+    document.getElementById('modalProdutoNome').textContent = nomeProduto;
+    document.getElementById('modalProdutoPreco').textContent = preco;
+    document.getElementById('modalProdutoImagem').src = imagem;
 
-    alert(
-        "Você Selecionou: " + nomeProduto + "Preço : R$" + preco
-    )
+    const modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('modalProduto'));
+    modal.show();
 }
 function cadastrar(){
     let nome = document.getElementById("nome").value;
