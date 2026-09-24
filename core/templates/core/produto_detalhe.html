@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Detalhe do produto{% endblock %}
+
+{% block content %}
+
+<h1>{{ produto.name }}</h1>
+
+<p>
+    {{ produto.descricao }}
+</p>
+
+<p>
+    Preço: R$ {{ produto.preco | floatformat:2 }}   
+</p>
+
+{% endblock %}

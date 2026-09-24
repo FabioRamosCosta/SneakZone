@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Home | SneakZone{% endblock %}
+
+{% block content %}
+
+    <h1>Bem-vindo à SneakZone!</h1>
+    <p>Descubra os melhores produtos de calçados e roupas esportivas.</p>
+
+    <h1>{{ titulo|upper }}</h1>
+    <p>{{ Subtitulo|lower }}</p>
+
+    {% for categoria in categorias %}
+        <h2>{{ categoria.nome }}</h2>
+        <p>{{ categoria.descricao }}</p>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Nossos Produtos{% endblock %}
+
+
+{% block content %}
+
+<h1>Nossos Produtos</h1>
+
+<p>
+    Confira nossos produtos.
+</p>
+{% for produto in produtos %}
+    <h2>{{ produto.nome }}</h2>
+    <p>{{ produto.descricao }}</p>
+    <p>{{ produto.preco | floatformat:2 }} </p>
+
+{% if produto.estoque > 0 %}
+<span class="badge bg-success"> 
+    Disponivel
+</span>
+<a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-primary">Ver Detalhes</a>
+
+{% else %}
+<span class="badge bg-success"> 
+    Indisponivel
+</span>
+<a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-primary">Ver Detalhes</a>
+
+
+{% endif %}
+
+    {% empty %}
+
+
+    <p>Nenhuma categoria encontrada.</p>
+
+{% endfor %}
+
+{% endblock %}
