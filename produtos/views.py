@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 PRODUTOS =[
     {
         "id": 1,
@@ -32,26 +33,17 @@ PRODUTOS =[
 ]
 
 
-def home(request):
-    categorias = [
-        "Corrida", 
-        "Casual",
-        "Esportivo",
-        "Streetwear"
-    ]
+def produtos(request):
     contexto = {
-        "titulo": "Os melhores tênis para o seu estilo",
-        "subtitulo": "Encontre seu próximo par.",
-        "categorias": categorias,
         "produtos": PRODUTOS
     }
-    return render(request, "core/home.html", contexto)
-
-
-
-def sobre(request):
-    return render(request, "core/sobre.html")
-
-def contato(request):
-    return render(request, "core/contato.html")
-
+    return render(request, "core/produtos.html", contexto)
+# Create your views here.
+def produto_detalhe(request, id):
+    produto = None
+    
+    for item in PRODUTOS :
+        if item["id"] == id:
+            produto = item
+            break
+    return render(request, "core/produto_detalhe.html",{"produto": produto})

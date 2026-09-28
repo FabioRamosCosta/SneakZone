@@ -1,18 +1,46 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Home | SneakZone{% endblock %}
+{% block title %}
+    Home | SneakZone
+{% endblock %}
 
 {% block content %}
 
-    <h1>Bem-vindo à SneakZone!</h1>
-    <p>Descubra os melhores produtos de calçados e roupas esportivas.</p>
+<h1>{{ titulo | upper}}</h1>
 
-    <h1>{{ titulo|upper }}</h1>
-    <p>{{ Subtitulo|lower }}</p>
+<p>
+    {{ subtitulo | lower}}
+</p>
+
+<h2 class="mb-4"> Categorias</h2>
+
+<div class="row g-4">
 
     {% for categoria in categorias %}
-        <h2>{{ categoria.nome }}</h2>
-        <p>{{ categoria.descricao }}</p>
+
+        <div class="col-md-3">
+
+            <div class="card">
+                <div class="card-body text-center">
+                    {{ categoria }}
+                </div>
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+<div class="row g-4 ">
+
+    {% for produto in produtos %}
+
+        <div class="col-md-4">
+
+            {% include 'core/partials/produto_card.html' %}
+
+        </div>
+
     {% endfor %}
 
 {% endblock %}
