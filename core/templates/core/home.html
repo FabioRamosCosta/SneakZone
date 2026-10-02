@@ -16,19 +16,32 @@
 
 <div class="row g-4">
 
-    {% for categoria in categorias %}
+ {% for categoria in categorias %}
 
-        <div class="col-md-3">
+    <div class="col-md-3">
 
-            <div class="card">
+        <a
+            href="{% url 'produtos_categoria' categoria.nome %}"
+            class="text-decoration-none"
+        >
+
+            <div class="card h-100">
+
                 <div class="card-body text-center">
-                    {{ categoria }}
+
+                    <h5 class="mb-0">
+                        {{ categoria }}
+                    </h5>
+
                 </div>
+
             </div>
 
-        </div>
+        </a>
 
-    {% endfor %}
+    </div>
+
+{% endfor %}
 
 </div>
 <div class="row g-4 ">

@@ -1,6 +1,16 @@
 from django.db import models
 
-# Create your models here.
+
+class Categoria(models.Model):
+
+    nome = models.CharField(
+        max_length=50
+    )
+
+    def __str__(self):
+        return self.nome
+
+
 class Produto(models.Model):
 
     nome = models.CharField(
@@ -14,8 +24,9 @@ class Produto(models.Model):
         decimal_places=2
     )
 
-    categoria = models.CharField(
-        max_length=50
+    categoria = models.ForeignKey(
+        Categoria,
+        on_delete=models.PROTECT
     )
 
     estoque = models.PositiveIntegerField(
@@ -27,5 +38,6 @@ class Produto(models.Model):
         blank=True
     )
 
-    def __str__(self):
-        return self.nome
+    data_cadastro = models.DateTimeField(
+        auto_now_add=True
+    )
