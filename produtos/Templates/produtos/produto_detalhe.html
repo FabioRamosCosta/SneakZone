@@ -1,17 +1,66 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Detalhe do produto{% endblock %}
+{% block title %}
+{{ produto.nome }} | SneakZone
+{% endblock %}
 
 {% block content %}
 
-<h1>{{ produto.name }}</h1>
+{% if produto %}
 
-<p>
-    {{ produto.descricao }}
-</p>
+    <h1>{{ produto.nome }}</h1>
 
-<p>
-    Preço: R$ {{ produto.preco | floatformat:2 }}   
-</p>
+    <p>
+        {{ produto.descricao }}
+    </p>
+
+    <h2>
+        R$ {{ produto.preco|floatformat:2 }}
+    </h2>
+
+    {% if produto.estoque > 0 %}
+
+        <span class="badge bg-success">
+            Disponível
+        </span>
+
+    {% else %}
+
+        <span class="badge bg-danger">
+            Esgotado
+        </span>
+
+    {% endif %}
+    {% if user.is_authenticated %}
+
+        <a
+            href="{% url 'produto_editar' produto.id %}"
+            class="btn btn-primary">
+
+            Editar
+
+        </a>
+        <a
+            href="{% url 'produto_excluir' produto.id %}"
+            class="btn btn-danger">
+
+            Excluir
+
+    {% endif %}
+{% else %}
+
+    <div class="alert alert-danger">
+        Produto não encontrado.
+    </div>
+
+{% endif %}
+
+<a
+    href="{% url 'produtos' %}"
+    class="btn btn-secondary">
+
+    Voltar
+
+</a>
 
 {% endblock %}

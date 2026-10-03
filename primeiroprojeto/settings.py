@@ -119,5 +119,9 @@ USE_TZ = True
 #STATIC_URL = 'static/'
 STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATICFILES_DIRS = [BASE_DIR / "static"]    
+STATICFILES_DIRS = [BASE_DIR / "static"] 
+
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/produtos/"
+LOGOUT_REDIRECT_URL = "/"
 
