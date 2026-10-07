@@ -1,8 +1,27 @@
 {% load static %}
 <div class="card h-100 shadow-sm produto-card">
-    <img src="{% static produto.imagem %}"
+
+
+
+    <!-- <img src="{% static produto.imagem %}"
         class="card-img-top"
-        alt="{{ produto.nome }}">
+        alt="{{ produto.nome }}"> -->
+
+{% if produto.imagem %}
+
+    <img
+        src="{{ produto.imagem.url }}"
+        class="card-img-top produto-imagem"
+        alt="{{ produto.nome }}"
+    >
+
+{% else %}
+
+    <div class="bg-light text-center p-5">
+        Sem imagem
+    </div>
+
+{% endif %}
 
     <div class="card-body">
 

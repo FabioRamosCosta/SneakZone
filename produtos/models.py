@@ -41,3 +41,8 @@ class Produto(models.Model):
     data_cadastro = models.DateTimeField(
         auto_now_add=True
     )
+
+    imagem = models.ImageField(
+        upload_to='produtos/'
+      
+    )

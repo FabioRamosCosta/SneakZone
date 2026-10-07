@@ -26,6 +26,22 @@
 
             {% if user.is_authenticated %}
 
+                <span class="text-white me-2">
+                    Olá, {{ user.first_name|default:user.username }}
+                </span>
+
+                {% if user.is_staff %}
+
+                    <a
+                        href="/admin/"
+                        class="btn btn-outline-warning">
+
+                        Administração
+
+                    </a>
+
+            
+
                 <a
                     href="{% url 'produto_novo' %}"
                     class="btn btn-primary">
@@ -33,6 +49,8 @@
                     + Novo produto
 
                 </a>
+
+                    {% endif %}
 
                 <form
                     method="post"
@@ -58,6 +76,14 @@
                     class="btn btn-outline-light">
 
                     Entrar
+
+                </a>
+
+                <a
+                    href="{% url 'cadastro' %}"
+                    class="btn btn-success">
+
+                    Criar conta
 
                 </a>
 

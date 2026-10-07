@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Produto, Categoria
 
-
+from django.http import HttpResponseForbidden
 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -30,10 +30,16 @@ def produtos_categoria(request, categoria):
 
 @login_required # Fez o efeito de proteger a view, para que apenas usuários logados possam acessar.
 def produto_novo(request):
+    if not request.user.is_staff:
+
+        return HttpResponseForbidden(
+            "Você não possui permissão."
+        )
+   
 
     if request.method == "POST":
 
-        form = ProdutoForm(request.POST)
+        form = ProdutoForm(request.POST, request.FILES)  # Adicionei request.FILES para lidar com o upload de arquivos
 
         if form.is_valid():
 
@@ -70,6 +76,7 @@ def produto_editar(request, id):
 
         form = ProdutoForm(
             request.POST,
+            request.FILES,  # Adicionei request.FILES para lidar com o upload de arquivos
             instance=produto
         )
 
@@ -83,7 +90,7 @@ def produto_editar(request, id):
             )
 
             return redirect(
-                "produto_detalhe",
+                "produtos_detalhe",
                 id=produto.id
             )
 

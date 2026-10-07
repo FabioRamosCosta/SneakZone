@@ -2,6 +2,11 @@ from django.shortcuts import render
 
 from produtos.models import Categoria, Produto
 
+from django.contrib.auth.decorators import login_required
+
+
+
+
 
 def home(request):
     categorias = Categoria.objects.all()
@@ -21,4 +26,12 @@ def sobre(request):
 
 def contato(request):
     return render(request, "core/contato.html")
+
+@login_required
+def perfil(request):
+
+    return render(
+        request,
+        "usuarios/perfil.html"
+    )
 
