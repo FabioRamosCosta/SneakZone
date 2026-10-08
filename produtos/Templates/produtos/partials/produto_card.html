@@ -7,21 +7,17 @@
         class="card-img-top"
         alt="{{ produto.nome }}"> -->
 
-{% if produto.imagem %}
+    {% if produto.imagem %}
 
-    <img
-        src="{{ produto.imagem.url }}"
-        class="card-img-top produto-imagem"
-        alt="{{ produto.nome }}"
-    >
+    <img src="{{ produto.imagem.url }}" class="card-img-top produto-imagem" alt="{{ produto.nome }}">
 
-{% else %}
+    {% else %}
 
     <div class="bg-light text-center p-5">
         Sem imagem
     </div>
 
-{% endif %}
+    {% endif %}
 
     <div class="card-body">
 
@@ -43,30 +39,29 @@
 
         {% if produto.estoque > 0 %}
 
-            <span class="badge bg-success">
-                Disponível
-            </span>
+        <span class="badge bg-success">
+            Disponível
+        </span>
 
         {% else %}
 
-            <span class="badge bg-danger">
-                Esgotado
-            </span>
+        <span class="badge bg-danger">
+            Esgotado
+        </span>
 
         {% endif %}
 
-        <div class="mt-3">
+        <div class="mt-3 d-flex gap-2">
 
-            <a
-                href="{% url 'produtos_detalhe' produto.id %}"
-                class="btn btn-primary">
-
+            <a href="{% url 'produtos_detalhe' produto.id %}" class="btn btn-primary">
                 Ver detalhes
+            </a>
 
+            <a href="{% url 'adicionar_carrinho' produto.id %}" class="btn btn-success">
+                Adicionar ao carrinho
             </a>
 
         </div>
-
     </div>
 
 </div>

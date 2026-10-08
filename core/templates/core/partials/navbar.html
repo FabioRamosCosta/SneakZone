@@ -2,89 +2,135 @@
 
     <div class="container">
 
-        <a class="navbar-brand text-white"
-           href="{% url 'home' %}">
+        <!-- LOGO -->
+        <a
+            class="navbar-brand text-white"
+            href="{% url 'home' %}"
+        >
             SneakZone
         </a>
 
-        <div>
 
-            <a class="btn btn-dark text-white"
-               href="{% url 'home' %}">
+        <!-- MENU -->
+        <div class="d-flex align-items-center gap-1">
+
+            <!-- HOME -->
+            <a
+                class="btn btn-dark text-white"
+                href="{% url 'home' %}"
+            >
                 Home
             </a>
 
-            <a class="btn btn-dark text-white"
-               href="{% url 'produtos' %}">
+
+            <!-- PRODUTOS -->
+            <a
+                class="btn btn-dark text-white"
+                href="{% url 'produtos' %}"
+            >
                 Produtos
             </a>
 
-            <a class="btn btn-dark text-white"
-               href="{% url 'sobre' %}">
+
+            <!-- SOBRE -->
+            <a
+                class="btn btn-dark text-white"
+                href="{% url 'sobre' %}"
+            >
                 Sobre
             </a>
 
+
+            <!-- CARRINHO -->
+            <a
+                class="btn btn-dark text-white position-relative"
+                href="{% url 'carrinho' %}"
+            >
+
+                🛒 Carrinho
+
+                {% if quantidade_carrinho > 0 %}
+
+                    <span
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    >
+                        {{ quantidade_carrinho }}
+                    </span>
+
+                {% endif %}
+
+            </a>
+
+
             {% if user.is_authenticated %}
 
-                <span class="text-white me-2">
-                    Olá, {{ user.first_name|default:user.username }}
+                <!-- USUÁRIO -->
+                <span class="text-white ms-2 me-2">
+
+                    Olá,
+                    {{ user.first_name|default:user.username }}
+
                 </span>
+
 
                 {% if user.is_staff %}
 
+                    <!-- ADMINISTRAÇÃO -->
                     <a
                         href="/admin/"
-                        class="btn btn-outline-warning">
-
+                        class="btn btn-outline-warning me-1"
+                    >
                         Administração
-
                     </a>
 
-            
 
-                <a
-                    href="{% url 'produto_novo' %}"
-                    class="btn btn-primary">
+                    <!-- NOVO PRODUTO -->
+                    <a
+                        href="{% url 'produto_novo' %}"
+                        class="btn btn-primary me-1"
+                    >
+                        + Novo produto
+                    </a>
 
-                    + Novo produto
+                {% endif %}
 
-                </a>
 
-                    {% endif %}
-
+                <!-- SAIR -->
                 <form
                     method="post"
                     action="{% url 'logout' %}"
-                    class="d-inline">
+                    class="d-inline"
+                >
 
                     {% csrf_token %}
 
                     <button
                         type="submit"
-                        class="btn btn-outline-light">
-
+                        class="btn btn-outline-light"
+                    >
                         Sair
-
                     </button>
 
                 </form>
 
+
             {% else %}
 
+                <!-- ENTRAR -->
                 <a
                     href="{% url 'login' %}"
-                    class="btn btn-outline-light">
-
+                    class="btn btn-outline-light me-1"
+                >
                     Entrar
-
                 </a>
 
+
+                <!-- CRIAR CONTA -->
                 <a
                     href="{% url 'cadastro' %}"
-                    class="btn btn-success">
-
+                    class="btn btn-success"
+                >
                     Criar conta
-
                 </a>
 
             {% endif %}
