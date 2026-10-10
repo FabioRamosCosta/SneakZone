@@ -28,10 +28,7 @@
 
                             {% if item.produto.imagem %}
 
-                            <img
-                                src="{{ item.produto.imagem.url }}"
-                                class="img-fluid rounded"
-                            >
+                            <img src="{{ item.produto.imagem.url }}" class="img-fluid rounded">
 
                             {% endif %}
 
@@ -59,10 +56,8 @@
 
                             <div class="d-inline-flex align-items-center border rounded">
 
-                                <a
-                                    href="{% url 'remover_carrinho' item.produto.id %}"
-                                    class="btn btn-light btn-sm border-0"
-                                >
+                                <a href="{% url 'remover_carrinho' item.produto.id %}"
+                                    class="btn btn-light btn-sm border-0">
                                     −
                                 </a>
 
@@ -70,10 +65,8 @@
                                     {{ item.quantidade }}
                                 </span>
 
-                                <a
-                                    href="{% url 'adicionar_carrinho' item.produto.id %}"
-                                    class="btn btn-light btn-sm border-0"
-                                >
+                                <a href="{% url 'adicionar_carrinho' item.produto.id %}"
+                                    class="btn btn-light btn-sm border-0">
                                     +
                                 </a>
 
@@ -92,10 +85,7 @@
                                 R$ {{ item.subtotal|floatformat:2 }}
                             </div>
 
-                            <a
-                                href="{% url 'excluir_carrinho' item.produto.id %}"
-                                class="btn btn-danger btn-sm mt-2"
-                            >
+                            <a href="{% url 'excluir_carrinho' item.produto.id %}" class="btn btn-danger btn-sm mt-2">
                                 Remover
                             </a>
 
@@ -127,9 +117,13 @@
                         R$ {{ total|floatformat:2 }}
                     </h2>
 
-                    <button class="btn btn-success w-100">
-                        Finalizar compra
-                    </button>
+                    <form method="post" action="{% url 'finalizar_pedido' %}">
+                        {% csrf_token %}
+
+                        <button type="submit" class="btn btn-success w-100" {% if not produtos %}disabled{% endif %}>
+                            Finalizar compra
+                        </button>
+                    </form>
 
                 </div>
 

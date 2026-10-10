@@ -1,4 +1,3 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from .models import Produto, Categoria
 
 from django.http import HttpResponseForbidden
@@ -6,6 +5,19 @@ from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import ProdutoForm
+
+
+
+
+from decimal import Decimal
+
+from django.contrib import messages
+from django.db import transaction
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.http import require_POST
+
+from produtos.models import Produto
+
 
 def produtos(request):
     PRODUTOS = Produto.objects.all()

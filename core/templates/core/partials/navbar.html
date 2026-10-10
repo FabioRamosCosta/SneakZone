@@ -1,142 +1,151 @@
-<nav class="navbar navbar-expand-lg bg-dark">
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-3">
     <div class="container">
 
         <!-- LOGO -->
-        <a
-            class="navbar-brand text-white"
-            href="{% url 'home' %}"
-        >
+        <a class="navbar-brand fw-bold fs-4" href="{% url 'home' %}">
+            <span class="badge bg-primary rounded-3 me-2">S</span>
             SneakZone
         </a>
 
+        <!-- BOTÃO PARA CELULAR -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuSneakZone"
+            aria-controls="menuSneakZone" aria-expanded="false" aria-label="Abrir menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <!-- MENU -->
-        <div class="d-flex align-items-center gap-1">
+        <!-- MENU PRINCIPAL -->
+        <div class="collapse navbar-collapse" id="menuSneakZone">
 
-            <!-- HOME -->
-            <a
-                class="btn btn-dark text-white"
-                href="{% url 'home' %}"
-            >
-                Home
-            </a>
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+
+                <!-- HOME -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">
+                        Home
+                    </a>
+                </li>
+
+                <!-- PRODUTOS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'produtos' %}">
+                        Produtos
+                    </a>
+                </li>
+
+                <!-- SOBRE -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'sobre' %}">
+                        Sobre
+                    </a>
+                </li>
+
+                <!-- CARRINHO -->
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="{% url 'carrinho' %}">
+                        🛒 Carrinho
+
+                        {% if quantidade_carrinho > 0 %}
+                        <span class="badge rounded-pill bg-danger">
+                            {{ quantidade_carrinho }}
+                        </span>
+                        {% endif %}
+                    </a>
+                </li>
+
+                {% if user.is_authenticated %}
+
+                <!-- MINHA CONTA -->
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        👤 Olá, {{ user.first_name|default:user.username }}
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end">
+
+                        {% if user.is_staff %}
+                        <li>
+                            <h6 class="dropdown-header">
+                                Administração
+                            </h6>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="/admin/">
+                                Painel administrativo
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="{% url 'produto_novo' %}">
+                                + Novo produto
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        {% endif %}
+
+                        <li>
+                            <form method="post" action="{% url 'logout' %}">
+                                {% csrf_token %}
+
+                                <button type="submit" class="dropdown-item text-danger">
+                                    Sair da conta
+                                </button>
+                            </form>
+                        </li>
+
+                    </ul>
+                </li>
+
+                {% else %}
+
+                <!-- ACESSO -->
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Minha conta
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end">
+
+                        <li>
+                            <a class="dropdown-item" href="{% url 'login' %}">
+                                Entrar
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="{% url 'cadastro' %}">
+                                Criar conta
+                            </a>
+                        </li>
+                        <!-- Pedidos -->
+                        <a class="btn btn-dark text-white" href="{% url 'meus_pedidos' %}">
+                            Meus Pedidos
+                        </a>
 
 
-            <!-- PRODUTOS -->
-            <a
-                class="btn btn-dark text-white"
-                href="{% url 'produtos' %}"
-            >
-                Produtos
-            </a>
+                        <!-- SOBRE -->
+                        <a class="btn btn-dark text-white" href="{% url 'sobre' %}">
+                            Sobre
+                        </a>
 
 
-            <!-- SOBRE -->
-            <a
-                class="btn btn-dark text-white"
-                href="{% url 'sobre' %}"
-            >
-                Sobre
-            </a>
-
-
-            <!-- CARRINHO -->
-            <a
-                class="btn btn-dark text-white position-relative"
-                href="{% url 'carrinho' %}"
-            >
-
-                🛒 Carrinho
-
-                {% if quantidade_carrinho > 0 %}
-
-                    <span
-                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                    >
-                        {{ quantidade_carrinho }}
-                    </span>
+                        <!-- CONTATO -->
+                        <a class="btn btn-dark text-white" href="{% url 'contato' %}">
+                            Contato
+                        </a>
+                    </ul>
+                </li>
 
                 {% endif %}
 
-            </a>
-
-
-            {% if user.is_authenticated %}
-
-                <!-- USUÁRIO -->
-                <span class="text-white ms-2 me-2">
-
-                    Olá,
-                    {{ user.first_name|default:user.username }}
-
-                </span>
-
-
-                {% if user.is_staff %}
-
-                    <!-- ADMINISTRAÇÃO -->
-                    <a
-                        href="/admin/"
-                        class="btn btn-outline-warning me-1"
-                    >
-                        Administração
-                    </a>
-
-
-                    <!-- NOVO PRODUTO -->
-                    <a
-                        href="{% url 'produto_novo' %}"
-                        class="btn btn-primary me-1"
-                    >
-                        + Novo produto
-                    </a>
-
-                {% endif %}
-
-
-                <!-- SAIR -->
-                <form
-                    method="post"
-                    action="{% url 'logout' %}"
-                    class="d-inline"
-                >
-
-                    {% csrf_token %}
-
-                    <button
-                        type="submit"
-                        class="btn btn-outline-light"
-                    >
-                        Sair
-                    </button>
-
-                </form>
-
-
-            {% else %}
-
-                <!-- ENTRAR -->
-                <a
-                    href="{% url 'login' %}"
-                    class="btn btn-outline-light me-1"
-                >
-                    Entrar
-                </a>
-
-
-                <!-- CRIAR CONTA -->
-                <a
-                    href="{% url 'cadastro' %}"
-                    class="btn btn-success"
-                >
-                    Criar conta
-                </a>
-
-            {% endif %}
-
+            </ul>
         </div>
-
     </div>
-
 </nav>

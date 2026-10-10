@@ -1,0 +1,35 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <h1>Pedido #{{ pedido.id }}</h1>
+    <p>Data: {{ pedido.data_criacao|date:"d/m/Y H:i" }}</p>
+    <p>Status: {{ pedido.get_status_display }}</p>
+
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Preço unitário</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in pedido.itens.all %}
+                <tr>
+                    <td>{{ item.produto.nome }}</td>
+                    <td>{{ item.quantidade }}</td>
+                    <td>R$ {{ item.preco_unitario|floatformat:2 }}</td>
+                    <td>R$ {{ item.subtotal|floatformat:2 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <p class="fw-bold">Total: R$ {{ pedido.total|floatformat:2 }}</p>
+    <a href="{% url 'meus_pedidos' %}" class="btn btn-secondary">Voltar aos pedidos</a>
+</div>
+{% endblock %}
